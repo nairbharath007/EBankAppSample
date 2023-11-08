@@ -16,15 +16,14 @@ namespace EBankAppSample.Models
         public bool IsActive { get; set; }
 
         // 1:M relationship with Account
-        public List<Account> Accounts { get; set; }
+        public List<Account>? Accounts { get; set; }
 
         // 1:M relationship with Document
-        public List<Document> Documents { get; set; }
+        public List<Document>? Documents { get; set; }
 
         // 1:M relationship with Query
-        public List<Query> Queries { get; set; }
+        public List<Query>? Queries { get; set; }
 
-        //customerscontroller
-        //
+        
     }
 }

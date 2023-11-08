@@ -14,13 +14,13 @@ namespace EBankAppSample.Models
         public Customer Customer { get; set; }
 
         public string AccountType { get; set; }
-        public string AccountNumber { get; set; }
+        public string? AccountNumber { get; set; }
         public DateTime OpeningDate { get; set; }
-        public decimal Balance { get; set; }
-        public decimal InterestRate { get; set; }
+        public double Balance { get; set; }
+        public double InterestRate { get; set; }
         public bool IsActive { get; set; }
 
         // 1:M relationship with Transaction
-        public List<Transaction> Transactions { get; set; }
+        public List<Transaction>? Transactions { get; set; }
     }
 }

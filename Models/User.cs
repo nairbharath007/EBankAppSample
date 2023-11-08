@@ -16,10 +16,10 @@ namespace EBankAppSample.Models
         public int RoleId { get; set; }
         public Role Role { get; set; }
 
-        // 1:1 relationship with Customer
+        /*// 1:1 relationship with Customer
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public Customer Customer { get; set; }*/
 
         //userscontroller-->admin
         //getallusers()
@@ -27,6 +27,6 @@ namespace EBankAppSample.Models
         //update()
         //delete()
 
-        //create another class-->admin
+
     }
 }
