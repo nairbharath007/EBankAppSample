@@ -85,6 +85,49 @@ namespace EBankAppSample.Controllers
             return BadRequest("No user found to delete.");
         }
 
+
+        [HttpPut("deposit/{id}")]
+        public IActionResult Deposit(int id, [FromBody] double amount)
+        {
+            var balance = _accountService.Deposit(id, amount);
+            if (balance >= 0)
+            {
+                return Ok(balance);
+            }
+            if (balance == -1)
+            {
+                return NotFound("Account not found.");
+            }
+            return BadRequest("Insufficient balance.");
+        }
+
+
+        [HttpPut("withdraw/{id}")]
+        public IActionResult Withdraw(int id, [FromBody] double amount)
+        {
+            var balance = _accountService.Withdraw(id, amount);
+            if (balance >= 0)
+            {
+                return Ok(balance);
+            }
+            if (balance == -1)
+            {
+                return NotFound("Account not found.");
+            }
+            return BadRequest("Insufficient balance.");
+        }
+
+        [HttpGet("balance/{id}")]
+        public IActionResult GetBalance(int id)
+        {
+            var balance = _accountService.GetBalance(id);
+            if (balance >= 0)
+            {
+                return Ok(balance);
+            }
+            return NotFound("Account not found.");
+        }
+
         private Account ConvertToModel(AccountDto accountDto, bool includeOpeningDate = true)
         {
             var account = new Account
@@ -95,6 +138,7 @@ namespace EBankAppSample.Controllers
                 InterestRate = accountDto.InterestRate,
                 IsActive = accountDto.IsActive,
                 CustomerId = accountDto.CustomerId,
+                Balance = accountDto.Balance,
             };
             if(includeOpeningDate)
             {
@@ -114,6 +158,7 @@ namespace EBankAppSample.Controllers
                 InterestRate = account.InterestRate,
                 IsActive = account.IsActive,
                 CustomerId = account.CustomerId,
+                Balance= account.Balance,
             };
         }
     }

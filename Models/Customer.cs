@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Metadata;
 using System.Security.Principal;
 
@@ -8,6 +9,10 @@ namespace EBankAppSample.Models
     {
         [Key]
         public int CustomerId { get; set; }
+
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public User User { get; set; }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }

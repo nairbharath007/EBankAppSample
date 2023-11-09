@@ -8,7 +8,8 @@ namespace EBankAppSample.DTOs
         [Required]
         public string AccountNumber { get; set; }
         public double Balance { get; set; }
-        public double InterestRate { get; set; } 
+        public double InterestRate { get; set; }
+        [Required]
         public string AccountType { get; set; }   
         public DateTime OpeningDate { get; set; } 
         public bool IsActive { get; set; }

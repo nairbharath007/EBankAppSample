@@ -40,6 +40,7 @@ namespace EBankAppSample
             builder.Services.AddTransient<IAccountService, AccountService>();
             builder.Services.AddTransient<IDocumentService, DocumentService>();
             builder.Services.AddTransient<IQueryService, QueryService>();
+            builder.Services.AddTransient<ITransactionService, TransactionService>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

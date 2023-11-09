@@ -13,7 +13,7 @@ namespace EBankAppSample.Models
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
 
-        public string AccountType { get; set; }
+        public string AccountType { get; set; } //Savings, current, fd
         public string? AccountNumber { get; set; }
         public DateTime OpeningDate { get; set; }
         public double Balance { get; set; }

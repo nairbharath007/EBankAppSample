@@ -8,7 +8,7 @@ namespace EBankAppSample.Models
         public int RoleId { get; set; }
         public string RoleName { get; set; }
 
-        // 1:1 relationship with User
-        public User User { get; set; }
+        // 1:M relationship with User
+        public List<User>? Users { get; set; }
     }
 }
