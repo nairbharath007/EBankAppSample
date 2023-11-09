@@ -1,4 +1,5 @@
 ﻿using EBankAppSample.DTOs;
+using EBankAppSample.Exceptions;
 using EBankAppSample.Models;
 using EBankAppSample.Services;
 using Microsoft.AspNetCore.Http;
@@ -45,7 +46,8 @@ namespace EBankAppSample.Controllers
                 return Ok(customerDto);
             }
 
-            return NotFound("No such customer exists.");
+            /*return NotFound("No such customer exists.");*/
+            throw new CustomerNotFoundException("No such customer found.");
         }
         [HttpPost("")]
         public IActionResult Add(CustomerDto customerDto)
@@ -67,7 +69,8 @@ namespace EBankAppSample.Controllers
                 var modifiedCustomer = _customerService.Update(updatedCustomer);
                 return Ok(modifiedCustomer);
             }
-            return BadRequest("Some issue while updating Customer id: ");
+            /*return BadRequest("Some issue while updating Customer id: ");*/
+            throw new CustomerNotFoundException("No such customer found to update.");
 
         }
 
@@ -80,7 +83,8 @@ namespace EBankAppSample.Controllers
                 _customerService.Delete(customer);
                 return Ok(id);
             }
-            return BadRequest("No user found to delete.");
+            /*return BadRequest("No user found to delete.");*/
+            throw new CustomerNotFoundException("No such customer found to delete.");
         }
 
 

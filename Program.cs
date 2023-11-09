@@ -1,4 +1,5 @@
 using EBankAppSample.Data;
+using EBankAppSample.Middleware;
 using EBankAppSample.Repository;
 using EBankAppSample.Services;
 using Microsoft.EntityFrameworkCore;
@@ -57,6 +58,8 @@ namespace EBankAppSample
 
             app.UseAuthorization();
 
+            //Always put middlerwares between authorization() and mapcontrollers()
+            app.UseMiddleware<ErrorHandler>();
 
             app.MapControllers();
 
